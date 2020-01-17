@@ -15,9 +15,15 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "prettier": " prettier --write src/**/*",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn prettier"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
