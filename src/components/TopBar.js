@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { CurrentUserContext } from "../context/currentUser";
-export default () =>
-{
+export default () => {
   const [state] = useContext(CurrentUserContext);
   return (
     <nav className="navbar navbar-light">
@@ -10,31 +9,31 @@ export default () =>
         <Link to="/" className="navbar-brand">
           Medium
         </Link>
-        { !state.isLoading && ( // change into component which add posibility off show loading procces in ui
+        {!state.isLoading && ( // change into component which add posibility off show loading procces in ui
           <ul className="nav navbar-nav pull-xs-right">
-            { state.isLoggedIn === false && (
+            {state.isLoggedIn === false && (
               <>
                 <li className="nav-item">
-                  { " " }
+                  {" "}
                   <NavLink to="/" exact className="nav-link">
                     Home
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  { " " }
+                  {" "}
                   <NavLink to="/login" className="nav-link">
                     Sign in
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  { " " }
+                  {" "}
                   <NavLink to="/signup" className="nav-link">
                     Register
                   </NavLink>
                 </li>
               </>
-            ) }
-            { state.isLoggedIn === true && (
+            )}
+            {state.isLoggedIn === true && (
               <>
                 <li className="nav-item">
                   <NavLink to="/articles/new" className="nav-link">
@@ -44,7 +43,7 @@ export default () =>
                 </li>
                 <li className="nav-item">
                   <NavLink
-                    to={ `profiles/${ state.currentUser.user.username }` }
+                    to={`profiles/${state.currentUser.user.username}`}
                     className="nav-link"
                   >
                     <img
@@ -57,13 +56,13 @@ export default () =>
                       alt=""
                     />
                     &nbsp;
-                    { state.currentUser.user.username }
+                    {state.currentUser.user.username}
                   </NavLink>
                 </li>
               </>
-            ) }
+            )}
           </ul>
-        ) }
+        )}
       </div>
     </nav>
   );
