@@ -6,7 +6,8 @@ import { CurrentUserContext } from "../../context/currentUser";
 import BackendErrorMessages from "./components/BackendErrorMessages";
 import * as apiURLS from "../../api.js";
 
-const Authentication = props => {
+const Authentication = props =>
+{
   const isLogin = props.match.path === "/login";
   const pageTitle = isLogin ? "Sign in " : "Sign Up";
   const descriptionLink = isLogin ? "/register" : "/login";
@@ -20,7 +21,8 @@ const Authentication = props => {
   const [, setToken] = useLocalStorage("token");
   const [state, setCurrentUserState] = useContext(CurrentUserContext);
 
-  const handleSubmit = event => {
+  const handleSubmit = event =>
+  {
     event.preventDefault();
     const user = isLogin ? { email, password } : { email, password, username };
 
@@ -30,8 +32,10 @@ const Authentication = props => {
     });
   };
 
-  useEffect(() => {
-    if (!response) {
+  useEffect(() =>
+  {
+    if (!response)
+    {
       return;
     }
     setToken(response.user.token);
@@ -44,7 +48,8 @@ const Authentication = props => {
     }));
   }, [response, setToken, setCurrentUserState]);
 
-  if (isSuccessSubmited) {
+  if (isSuccessSubmited)
+  {
     console.log(state);
     return <Redirect to="/" />; // declarative  flow for redirecting. instead of imperative hitsory.push("/")
   }
@@ -54,46 +59,46 @@ const Authentication = props => {
       <div className="container page">
         <div className="row">
           <div className="col-md-6 offset-md-3 col-xs-12">
-            <h1 className="text-xs-center">{pageTitle}</h1>
+            <h1 className="text-xs-center">{ pageTitle }</h1>
             <p className="text-xs-center">
-              <Link to={descriptionLink}> {descriptionText}</Link>
+              <Link to={ descriptionLink }> { descriptionText }</Link>
             </p>
-            <form onSubmit={handleSubmit}>
-              {error && <BackendErrorMessages backendErrors={error.errors} />}
+            <form onSubmit={ handleSubmit }>
+              { error && <BackendErrorMessages backendErrors={ error.errors } /> }
               <fieldset className="form-group">
-                {!isLogin && (
+                { !isLogin && (
                   <fieldset className="form-group">
                     <input
                       type="text"
                       className="form-control form-control-lg"
                       placeholder="Username"
-                      value={username}
-                      onChange={data => setUserName(data.target.value)}
+                      value={ username }
+                      onChange={ data => setUserName(data.target.value) }
                     />
                   </fieldset>
-                )}
+                ) }
 
                 <fieldset className="form-group">
                   <input
                     type="email"
                     className="form-control form-control-lg"
                     placeholder="Email"
-                    onChange={e => setEmail(e.target.value)}
-                    value={email}
+                    onChange={ e => setEmail(e.target.value) }
+                    value={ email }
                   />
                   <input
                     type="password"
                     className="form-control form-control-lg"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
+                    value={ password }
+                    onChange={ e => setPassword(e.target.value) }
                     placeholder="Password"
                   />
                 </fieldset>
                 <button
-                  disabled={isLoading}
+                  disabled={ isLoading }
                   className="btn btn-lg btn-primary pull-xs-right"
                 >
-                  {pageTitle}
+                  { pageTitle }
                 </button>
               </fieldset>
             </form>
