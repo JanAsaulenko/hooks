@@ -13,7 +13,6 @@ const Feed = ({ articles }) =>
           </div>
         );
       }) }
-      sdsd
     </div>
   );
 };
