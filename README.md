@@ -1,5 +1,61 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Configure vsCode
+## For debuggin via vsCode 
+
+## add  extension
+
+ Debugger for Chrome
+
+ ### we will use attach to proccess debug instead of launch
+
+##  щелкните правой кнопкой мыши на ярлык Google Chrome.
+
+ Выберите свойства и добавьте следующую команду в поле "target" после кавычек.
+--remote-debugging-port=9222
+
+## Add Git Lens plugin
+
+## Few hotkeys
+
+## CTRL + D 
+ 
+ выбор следующего вхождения. Мультикурсор по сходим елементом.
+
+## CTRL + F2 
+
+ выбор всех вхождений.
+
+## ALT + click 
+
+ мультикурсор в нужных нам местах
+
+## Shift + Home 
+
+ выделит всю строку
+
+
+## ALt + стрелки 
+
+перемещение строки 
+
+## Shift + ALT + стрелки 
+
+ копирование  и вставка строки 
+
+## CTRL + F
+
+ поиск в файле
+
+## CTRL + H
+
+ поиск и замена в файле
+
+
+Ctrl + Shift + F — поиск по проекту.
+Ctrl + Shift + H — замена по проекту.
+
+
 ## Available Scripts
 
 In the project directory, you can run:

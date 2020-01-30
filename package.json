@@ -15,9 +15,15 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "prettier": " prettier --write src/**/*",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn prettier"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -36,5 +42,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "husky": "3",
+    "prettier": "^1.19.1"
   }
 }
