@@ -3,17 +3,14 @@ import useFetch from "../../hooks/useFetch";
 import Feed from "../../components/Feed";
 import { Pagination, getPaginator } from "../../components/Pagination";
 import { LIMIT } from "../../components/Pagination";
-const GlobalFeed = (props) => {
-
+const GlobalFeed = props => {
   let { currentPage, offset } = getPaginator(props.location.search);
-  const apiUrl = `/articles?limit=${ LIMIT }&offset=${ offset }`;
-  const [{ response, isloading, error }, doFetch] = useFetch(apiUrl)
-
+  const apiUrl = `/articles?limit=${LIMIT}&offset=${offset}`;
+  const [{ response, isloading, error }, doFetch] = useFetch(apiUrl);
 
   useEffect(() => {
     doFetch();
   }, [doFetch, offset]);
-
 
   return (
     <div className="home-page">
@@ -31,12 +28,17 @@ const GlobalFeed = (props) => {
             {!isloading && response && (
               <>
                 <Feed articles={response.articles} />
-                <Pagination total={response.articlesCount} limit={LIMIT} url={"/"} currentPage={currentPage} />
+                <Pagination
+                  total={response.articlesCount}
+                  limit={LIMIT}
+                  url={"/"}
+                  currentPage={currentPage}
+                />
               </>
-            )
-            }
+            )}
           </div>
-          <div className="col-md-3">Popular tags
+          <div className="col-md-3">
+            Popular tags
             <div className="row">
               <div className="col-md-4">Latest</div>
               <div className="col-md-3"> Most liked</div>
