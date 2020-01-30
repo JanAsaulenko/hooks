@@ -8,7 +8,7 @@ import { LoadingComponent } from "../../components/Loading";
 import { ErrorMessage } from "../../components/ErrorMessage";
 const GlobalFeed = props => {
   let { currentPage, offset } = getPaginator(props.location.search);
-  const apiUrl = `/articles?limit=${ LIMIT }&offset=${ offset }`;
+  const apiUrl = `/articles?limit=${LIMIT}&offset=${offset}`;
   const [{ response, isloading, error }, doFetch] = useFetch(apiUrl);
 
   useEffect(() => {
@@ -41,7 +41,6 @@ const GlobalFeed = props => {
             )}
           </div>
           <div className="col-md-3">
-
             <PopularTags />
             <div className="row">
               <div className="col-md-4">Latest</div>
