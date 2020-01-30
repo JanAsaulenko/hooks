@@ -1,20 +1,23 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Configure vsCode
-## For debuggin via vsCode 
+Git
 
-## add  extension
+## Add extension Git Graph
+
+## Add Git Lens plugin
 
  Debugger for Chrome
 
- ### we will use attach to proccess debug instead of launch
+## For debuggin via vsCode 
+
+### we will use attach to proccess debug instead of launch
 
 ##  щелкните правой кнопкой мыши на ярлык Google Chrome.
 
  Выберите свойства и добавьте следующую команду в поле "target" после кавычек.
 --remote-debugging-port=9222
 
-## Add Git Lens plugin
 
 ## Few hotkeys
 
