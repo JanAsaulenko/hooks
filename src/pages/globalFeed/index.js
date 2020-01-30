@@ -3,14 +3,17 @@ import useFetch from "../../hooks/useFetch";
 import Feed from "../../components/Feed";
 import { Pagination, getPaginator } from "../../components/Pagination";
 import { LIMIT } from "../../components/Pagination";
+import { PopularTags } from "../../components/PopularTags";
+import { LoadingComponent } from "../../components/Loading";
+import { ErrorMessage } from "../../components/ErrorMessage";
 const GlobalFeed = props => {
   let { currentPage, offset } = getPaginator(props.location.search);
-  const apiUrl = `/articles?limit=${LIMIT}&offset=${offset}`;
+  const apiUrl = `/articles?limit=${ LIMIT }&offset=${ offset }`;
   const [{ response, isloading, error }, doFetch] = useFetch(apiUrl);
 
   useEffect(() => {
     doFetch();
-  }, [doFetch, offset]);
+  }, [doFetch, currentPage]);
 
   return (
     <div className="home-page">
@@ -23,8 +26,8 @@ const GlobalFeed = props => {
       <div className="conainer page">
         <div className="row">
           <div className="col-md-9">
-            {isloading && <div>Loading</div>}
-            {error && <div>Some error</div>}
+            {isloading && <LoadingComponent />}
+            {error && <ErrorMessage />}
             {!isloading && response && (
               <>
                 <Feed articles={response.articles} />
@@ -38,7 +41,8 @@ const GlobalFeed = props => {
             )}
           </div>
           <div className="col-md-3">
-            Popular tags
+
+            <PopularTags />
             <div className="row">
               <div className="col-md-4">Latest</div>
               <div className="col-md-3"> Most liked</div>
