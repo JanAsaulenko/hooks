@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import useFetch from "../../hooks/useFetch";
 import Feed from "../../components/Feed";
+import { Pagination } from "../../components/Pagination";
 
 const GlobalFeed = () => {
   const apiUrl = "/articles?limit10&offset=0";
@@ -22,7 +23,13 @@ const GlobalFeed = () => {
           <div className="col-md-9">
             {isloading && <div>Loading</div>}
             {error && <div>Some error</div>}
-            {!isloading && response && <Feed articles={response.articles} />}
+            {!isloading && response && (
+              <>
+                <Feed articles={response.articles} />
+                <Pagination />
+              </>
+            )
+            }
           </div>
           <div className="col-md-3">Popular tags
             <div className="row">
@@ -30,7 +37,6 @@ const GlobalFeed = () => {
               <div className="col-md-3"> Most liked</div>
               <div className="col-md-3">Ukrainian</div>
             </div>
-
           </div>
         </div>
       </div>
